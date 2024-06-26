@@ -37,7 +37,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker:
   amazon_s3_cognito:
-    path: amazon_s3_cognito/
+    # path: amazon_s3_cognito/
+  amplify_flutter: ^2.0.0
 
 dev_dependencies:
   flutter_test:

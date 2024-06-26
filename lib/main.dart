@@ -1,4 +1,5 @@
 import 'package:amazon_s3_cognito/amazon_s3_cognito.dart';
+import 'package:bucket/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -19,7 +20,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: LoginScreen(),
     );
   }
 }
@@ -50,27 +52,27 @@ class _MyHomePageState extends State<MyHomePage> {
   String uploaded = '';
 
   uploadToBucket(String path, String name) async {
-    await AmazonS3Cognito.upload(
-      path,
-      bucket.text,
-      poolid.text,
-      name,
-      region.text,
-      subregion.text,
-    ).then((value) {
-      if (value != '') {
-        setState(() {
-          uploaded = value!;
-        });
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Image path: $value')),
-        );
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(value ?? '')),
-        );
-      }
-    });
+    // await AmazonS3Cognito.upload(
+    //   path,
+    //   bucket.text,
+    //   poolid.text,
+    //   name,
+    //   region.text,
+    //   subregion.text,
+    // ).then((value) {
+    //   if (value != '') {
+    //     setState(() {
+    //       uploaded = value!;
+    //     });
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //       SnackBar(content: Text('Image path: $value')),
+    //     );
+    //   } else {
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //       SnackBar(content: Text(value ?? '')),
+    //     );
+    //   }
+    // });
   }
 
   @override
